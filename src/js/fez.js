@@ -1,6 +1,4 @@
-/*
-  Helper functions
-*/
+var OrbitControls = require("./controls/OrbitControls.js");
 
 /*
   Combines texture, geometry and material to create a box mesh
@@ -58,7 +56,8 @@ var scene = new THREE.Scene();
 
 // Setup camera
 var aspectRatio = window.innerWidth / window.innerHeight;
-var camera = new THREE.PerspectiveCamera(30, aspectRatio, 1, 1000);
+var camera = new THREE.OrthographicCamera(window.innerWidth / - 100, window.innerWidth / 100, window.innerHeight / 100, window.innerHeight / -100, 1, 1000);
+// var camera = new THREE.PerspectiveCamera(30, aspectRatio, 1, 1000);
 camera.position.set(0, 0, 30);
 
 // Setup engine & canvas
@@ -337,3 +336,26 @@ var render = function () {
   renderer.render(scene, camera);
 };
 render();
+
+var onRenderFcts = [];
+
+// render the scene
+onRenderFcts.push(function() {
+    renderer.render(scene, camera);
+})
+
+
+var controls = new THREE.OrbitControls(camera)
+var lastTimeMsec = null
+requestAnimationFrame(function animate(nowMsec) {
+    // keep looping
+    requestAnimationFrame(animate);
+    // measure time
+    lastTimeMsec = lastTimeMsec || nowMsec - 1000 / 60
+    var deltaMsec = Math.min(200, nowMsec - lastTimeMsec)
+    lastTimeMsec = nowMsec
+        // call each update function
+    onRenderFcts.forEach(function(onRenderFct) {
+        onRenderFct(deltaMsec / 1000, nowMsec / 1000)
+    })
+})
