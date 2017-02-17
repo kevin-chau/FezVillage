@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Fez - Village</title>
+    <link rel="icon" href="images/favicon.ico">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+    <!-- require.js -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min.js'></script>
+
+    <!-- three.js -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/70/three.min.js'></script>
+
+    <!-- tween.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+
+    <!-- camera -->
+    <script src='js/controls/OrbitControls.js'></script>
+
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="stylesheets/main.css">
+
+  </head>
+  <body>
+      <!-- torus knot -->
+      <!-- <script src="js/torus_knot.js"></script> -->
+
+      <button rotate-handler>Rotate</button>
+
+      <section title="textures">
+        <img id="blue-brick" src="images/blue-brick.png">
+
+        <img id="ground" src="images/ground.png">
+
+        <img id="ground-grass" src="images/ground-grass.png">
+
+        <img id="open-leafs" src="images/open-leafs.png">
+
+        <img id="stone" src="images/stone.png">
+
+        <img id="log" src="images/log.png">
+      </section>
+
+      <section title="sprites">
+        <img id="gomez" src="images/gomez.png">
+
+        <img id="mill" src="images/mill.png">
+      </section>
+
+      <small>
+        <ul>
+          <li>Powered by three.js and GSAP.</li>
+          <li>All graphics used in this experiment are for educational purposes only, all rights reserved to Polytron Corporation. Check out there awesome game <a href="http://fezgame.com/">FEZ</a>.</li>
+          <li>All images are inline because of CORS issues. Thanks to <a href="http://b64.io/">b64.io</a> for making the base64 encoding less painful.</li>
+        </ul>
+      </small>
+
+      <script src="js/fez.js"></script>
+  </body>
+<html>
