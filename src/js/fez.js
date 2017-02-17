@@ -344,7 +344,6 @@ onRenderFcts.push(function() {
     renderer.render(scene, camera);
 })
 
-
 var controls = new THREE.OrbitControls(camera)
 var lastTimeMsec = null
 requestAnimationFrame(function animate(nowMsec) {
